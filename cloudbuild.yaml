@@ -18,5 +18,5 @@
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['set', 'image', 'deployment/payment-service-deployment', 'payment-service-sha256=gcr.io/fido-linkme/payment-service:$COMMIT_SHA']
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast1-a'
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast2-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=payment-service-cluster'
