@@ -1,4 +1,4 @@
-    steps:
+steps:
 # Download dependancies
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install']
