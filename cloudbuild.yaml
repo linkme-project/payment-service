@@ -8,15 +8,15 @@
 
 # Image build
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/fido-linkme/product-service:$COMMIT_SHA', '.']
+  args: ['build', '-t', 'gcr.io/fido-linkme/payment-service:$COMMIT_SHA', '.']
 
 # Registry push
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/fido-linkme/product-service:$COMMIT_SHA']
+  args: ['push', 'gcr.io/fido-linkme/payment-service:$COMMIT_SHA']
 
 # Deploy
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment/product-service-deployment', 'product-service-sha256=gcr.io/fido-linkme/product-service:$COMMIT_SHA']
+  args: ['set', 'image', 'deployment/payment-service-deployment', 'payment-service-sha256=gcr.io/fido-linkme/payment-service:$COMMIT_SHA']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=product-service-cluster'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=payment-service-cluster'
