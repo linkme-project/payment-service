@@ -18,11 +18,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/payments', paymentsRouter);
 app.use('/healthy', (req, res, next) => {
   res.status(200).json();
 });
-
-app.use('/payments', paymentsRouter);
+app.use('/', (req, res, next) => {
+  res.status(200).json();
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
